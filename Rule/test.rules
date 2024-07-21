@@ -1,0 +1,3 @@
+alert icmp $EXTERNAL_NET any -> $HOME_NET any ( msg:"PROTOCOL-ICMP TFN Probe"; icmp_id:678; itype:8; content:"1234",fast_pattern,nocase; metadata:ruleset community; reference:cve,2000-0138; classtype:attempted-dos; sid:221; rev:12; )
+alert icmp $EXTERNAL_NET any -> $HOME_NET any ( msg:"PROTOCOL-ICMP tfn2k icmp possible communication"; icmp_id:0; itype:0; content:"AAAAAAAAAA",fast_pattern,nocase; metadata:ruleset community; reference:cve,2000-0138; classtype:attempted-dos; sid:222; rev:10; )
+alert icmp $EXTERNAL_NET any -> $HOME_NET any ( msg:"PROTOCOL-ICMP PING undefined code"; icode:>0; itype:8; metadata:ruleset community; classtype:misc-activity; sid:365; rev:11; )
